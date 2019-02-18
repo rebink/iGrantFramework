@@ -35,3 +35,27 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
+Example/Pods/Local Podspecs/iGrantFramework.podspec.json
+Example/Pods/Target Support Files/iGrantFramework/iGrantFramework-dummy.m
+Example/Pods/Target Support Files/iGrantFramework/iGrantFramework-Info.plist
+Example/Pods/Target Support Files/iGrantFramework/iGrantFramework-prefix.pch
+Example/Pods/Target Support Files/iGrantFramework/iGrantFramework-umbrella.h
+Example/Pods/Target Support Files/iGrantFramework/iGrantFramework.modulemap
+Example/Pods/Target Support Files/iGrantFramework/iGrantFramework.xcconfig
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example-acknowledgements.markdown
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example-acknowledgements.plist
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example-dummy.m
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example-frameworks.sh
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example-Info.plist
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example-umbrella.h
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example.debug.xcconfig
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example.modulemap
+Example/Pods/Target Support Files/Pods-iGrantFramework_Example/Pods-iGrantFramework_Example.release.xcconfig
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests-acknowledgements.markdown
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests-acknowledgements.plist
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests-dummy.m
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests-Info.plist
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests-umbrella.h
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests.debug.xcconfig
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests.modulemap
+Example/Pods/Target Support Files/Pods-iGrantFramework_Tests/Pods-iGrantFramework_Tests.release.xcconfig
