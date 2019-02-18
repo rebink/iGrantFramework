@@ -1,0 +1,16 @@
+PODS:
+  - iGrantFramework (0.1.0)
+
+DEPENDENCIES:
+  - iGrantFramework (from `../`)
+
+EXTERNAL SOURCES:
+  iGrantFramework:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  iGrantFramework: 4ad386cd2fa585f621ddf619559f1c342a6f8924
+
+PODFILE CHECKSUM: 54c1bafe0a250054b8d16b4cc3739261f4f005b1
+
+COCOAPODS: 1.6.0
