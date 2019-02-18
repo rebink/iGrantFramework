@@ -38,17 +38,17 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'UIKit' , 'SafariServices'
-s.dependency 'AFNetworking'
+s.dependency 'Alamofire', '~> 4.6'
 s.dependency 'Kingfisher'
 s.dependency 'Alamofire'
 s.dependency 'SwiftyJSON'
 s.dependency 'MBProgressHUD'
-s.dependency 'SkyFloatingLabelTextField'
+s.dependency 'SkyFloatingLabelTextField', '~> 3.0'
 s.dependency 'IQKeyboardManagerSwift'
 s.dependency "ExpandableLabel"
 s.dependency "Popover"
 s.dependency 'Closures'
-s.dependency 'Localize-Swift'
+s.dependency 'Localize-Swift', '~> 2.0'
 s.dependency 'Toast-Swift'
 s.dependency 'CountryPickerSwift'
 
