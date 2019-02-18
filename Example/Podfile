@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'iGrantFramework_Example' do
+  pod 'iGrantFramework', :path => '../'
+
+  target 'iGrantFramework_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
