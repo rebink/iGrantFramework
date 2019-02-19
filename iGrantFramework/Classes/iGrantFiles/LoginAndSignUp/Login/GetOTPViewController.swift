@@ -50,7 +50,7 @@ class GetOTPViewController: BaseViewController {
     }
 
     @IBAction func getOtpButtonClicked(){
-        let otpVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "OTPSendingVC") as! OtpEnteringViewController
+        let otpVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "OTPSendingVC") as! OtpEnteringViewController
         self.navigationController?.pushViewController(otpVC, animated: true)
 
     }

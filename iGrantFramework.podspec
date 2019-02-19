@@ -32,7 +32,8 @@ Pod::Spec.new do |s|
     s.swift_version = '4.2'
     s.resource_bundles = {
     'iGrantFramework' => ['iGrantFramework/Assets/**/*.png'],
-    'PopView' => ['iGrantFramework/Classes/iGrantFiles/Organisation/PopOverView.xib']
+    'PopView' => ['iGrantFramework/Classes/iGrantFiles/Organisation/PopOverView.xib'],
+    'iGrant' => ['iGrantFramework/Classes/iGrantFiles/iGrant.storyboard']
     }
 #  s.resources = 'iGrantFramework/Classes/iGrantFiles/iGrantAssets.xcassets/checked.imageset/checked@2x.png'
 

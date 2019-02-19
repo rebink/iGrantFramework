@@ -138,7 +138,7 @@ class PasswordViewController: BaseViewController {
             NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 18)!
         ]
         //UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        let tabView = Constant.getStoryboard().instantiateViewController(withIdentifier: "TabView") as! UITabBarController
+        let tabView = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "TabView") as! UITabBarController
         UIApplication.shared.keyWindow?.rootViewController = tabView
     }
     

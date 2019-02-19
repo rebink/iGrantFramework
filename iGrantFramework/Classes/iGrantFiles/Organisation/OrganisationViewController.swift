@@ -296,7 +296,7 @@ extension  OrganisationViewController : UITableViewDelegate,UITableViewDataSourc
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         if indexPath.section == 2{
-            let consentVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "ConsentListVC") as! ConsentListViewController
+            let consentVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "ConsentListVC") as! ConsentListViewController
             consentVC.organisaionDeatils = self.organisaionDeatils
             consentVC.purposeInfo = organisaionDeatils?.purposeConsents[indexPath.row].purpose
             

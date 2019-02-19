@@ -19,12 +19,12 @@ public class iGrantViewController: UIViewController {
     
     public func show(organisationToken: String, userToken: String) {
         if Constant.Userinfo.currentUser.isUserAvailable {
-            let orgVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "OrgDetailedVC") as! OrganisationViewController
+            let orgVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "OrgDetailedVC") as! OrganisationViewController
             orgVC.organisationId = organisationToken
             let navigationController = UINavigationController.init(rootViewController: orgVC)
             UIApplication.topViewController()?.present(navigationController, animated: true, completion: nil)
         } else {
-            let loginVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
+            let loginVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "LoginVC") as! LoginViewController
             let loginNav = UINavigationController.init(rootViewController: loginVC)
             loginVC.orgId = organisationToken
             UIApplication.topViewController()?.present(loginNav, animated: true, completion: nil)

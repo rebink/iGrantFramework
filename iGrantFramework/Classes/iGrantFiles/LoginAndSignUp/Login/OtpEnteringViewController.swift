@@ -65,7 +65,7 @@ class OtpEnteringViewController: BaseViewController,UITextFieldDelegate {
     }
   
     func showPasswordView(){
-        let passwordVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "PasswordVC") as! PasswordViewController
+        let passwordVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "PasswordVC") as! PasswordViewController
         self.signupInfo.phone = self.phoneNumber
         passwordVC.signupInfo = self.signupInfo
         self.navigationController?.pushViewController(passwordVC, animated: true)

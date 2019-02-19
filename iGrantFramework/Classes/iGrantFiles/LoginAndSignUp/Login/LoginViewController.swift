@@ -228,14 +228,14 @@ class LoginViewController: BaseViewController {
     
     
     @IBAction func fotgotPwdButtonClicked(){
-        let resetPwdVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "ResetPasswordVC") as! ForgotPasswordViewController
+        let resetPwdVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "ResetPasswordVC") as! ForgotPasswordViewController
         let resetPwdNav = UINavigationController.init(rootViewController: resetPwdVC)
         self.present(resetPwdNav, animated: true, completion: nil)
     }
     
     
     func showOrgDetail(){
-        let orgVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "OrgDetailedVC") as! OrganisationViewController
+        let orgVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "OrgDetailedVC") as! OrganisationViewController
         orgVC.organisationId = orgId ?? ""
         self.navigationController?.pushViewController(orgVC, animated: true)
     }

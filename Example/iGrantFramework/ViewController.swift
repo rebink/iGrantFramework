@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iGrantFramework
 
 class ViewController: UIViewController {
 
@@ -15,6 +16,10 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBAction func showIgrantView(_ sender: Any) {
+        iGrantViewController.shared.show(organisationToken: "5c1507365430460001af621a", userToken: "")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -10,10 +10,6 @@ import Foundation
 import UIKit
 
 struct Constant {
-
-    static func getStoryboard() -> UIStoryboard {
-        return UIStoryboard.init(name: "iGrant", bundle: nil)
-    }
     
     struct AppSetupConstant {
         static let KSavingUSerInfoUserDefaultKey = "UserSession"
@@ -22,7 +18,13 @@ struct Constant {
         static let KTokenExpired = "Invalid token, Authorization failed"
     }
     
-    
+    static func getStoryboard(vc: AnyClass) -> UIStoryboard {
+//        var bundle: Bundle? = nil
+//        if let url = Bundle(for: vc).url(forResource: "iGrant", withExtension: "bundle") {
+//            bundle = Bundle(url: url)
+//        }
+        return UIStoryboard(name:"iGrant", bundle: Bundle.init(for: vc))
+    }
     /// This is an **ScreenSize** Constant.
     
     struct ScreenSize{

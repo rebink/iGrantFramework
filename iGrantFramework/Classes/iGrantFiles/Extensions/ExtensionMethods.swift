@@ -95,7 +95,7 @@ extension UIViewController {
              AppSharedData.sharedInstance.isExpiredAccesToken = false
             UserInfo.currentUser()?.clearSession()
             AppSharedData.sharedInstance.isNeedToAddBgkColorInLandinScreen = true
-            let landinView = Constant.getStoryboard().instantiateViewController(withIdentifier: "LandingVC") as! LandingViewController
+            let landinView = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "LandingVC") as! LandingViewController
             UIApplication.shared.keyWindow?.rootViewController = landinView
 
         }else{

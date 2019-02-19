@@ -108,7 +108,7 @@ class ConsentListViewController: BaseViewController {
     @IBAction func policyBtnClicked(){
         if let url = self.consentslistInfo?.consents.purpose.policyURL{
             if url.isValidString{
-                let webviewVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "WebViewVC") as! WebViewViewController
+                let webviewVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "WebViewVC") as! WebViewViewController
                 webviewVC.urlString = url
                 self.navigationController?.pushViewController(webviewVC, animated: true)
             }else{
@@ -215,7 +215,7 @@ extension  ConsentListViewController : UITableViewDelegate,UITableViewDataSource
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         if self.consentslistInfo?.consents.purpose.lawfulUsage == false{
-            let consentVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "ConsentVC") as! ConsentViewController
+            let consentVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "ConsentVC") as! ConsentViewController
             consentVC.consent = consentslist?[indexPath.row]
             consentVC.orgID = self.consentslistInfo?.orgID
             consentVC.purposeDetails = self.consentslistInfo

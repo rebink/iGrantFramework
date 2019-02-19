@@ -227,7 +227,7 @@ class SignupViewController: BaseViewController {
         callOtpGenarationApi()
         //        signupUserInfo.pasword = password
         
-        //        let passwordVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "PasswordVC") as! PasswordViewController
+        //        let passwordVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "PasswordVC") as! PasswordViewController
         //        passwordVC.signupInfo = signupUserInfo
         
         
@@ -245,7 +245,7 @@ class SignupViewController: BaseViewController {
     }
     
     func showOtpView(){
-        let otpVC = Constant.getStoryboard().instantiateViewController(withIdentifier: "OTPSendingVC") as! OtpEnteringViewController
+        let otpVC = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "OTPSendingVC") as! OtpEnteringViewController
         otpVC.phoneNumber = (countryCodeLbl.text)! + (phoneTextfld.text)!
         otpVC.signupInfo = signupUserInfo
         self.navigationController?.pushViewController(otpVC, animated: true)
@@ -268,7 +268,7 @@ class SignupViewController: BaseViewController {
             NSAttributedString.Key.font: UIFont(name: "OpenSans", size: 18)!
         ]
        // UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
-        let tabView = Constant.getStoryboard().instantiateViewController(withIdentifier: "TabView") as! UITabBarController
+        let tabView = Constant.getStoryboard(vc: self.classForCoder).instantiateViewController(withIdentifier: "TabView") as! UITabBarController
         UIApplication.shared.keyWindow?.rootViewController = tabView
     }
     
