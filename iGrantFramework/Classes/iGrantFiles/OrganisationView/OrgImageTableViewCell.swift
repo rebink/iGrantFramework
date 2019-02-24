@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 class OrgImageTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLbl: UILabel!
@@ -59,24 +58,60 @@ class OrgImageTableViewCell: UITableViewCell {
         self.nameLbl.text = self.orgData?.name
         self.locationLbl.text = self.orgData?.location
         if let imageUrl = self.orgData?.coverImageURL{
-            let modifier = AnyModifier { request in
-                var r = request
-                if Constant.Userinfo.currentUser.isUserAvailable{
-                    let token : String = Constant.Userinfo.currentUser.iGrantToken
-                    r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+            let headers = [
+                "Authorization": "Bearer \(Constant.Userinfo.currentUser.iGrantToken)"
+            ]
+            
+            let request = NSMutableURLRequest(url: imageUrl,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "GET"
+            request.allHTTPHeaderFields = headers
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    print(error!)
+                } else {
+                    if data != nil {
+                        if let image = UIImage.init(data: data!) {
+                            DispatchQueue.main.async {
+                                self.orgImageView.image = image
+                            }
+                        }
+                    }
                 }
-                return r
-            }
-            orgImageView.kf.setImage(with: imageUrl, placeholder: nil, options: [.requestModifier(modifier),.transition(ImageTransition.fade(1))])
+            })
+            
+            dataTask.resume()
         }
         if let imageUrl = self.orgData?.logoImageURL{
-            let modifier = AnyModifier { request in
-                var r = request
-                let token : String = Constant.Userinfo.currentUser.iGrantToken
-                r.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-                return r
-            }
-            logoImageView.kf.setImage(with: imageUrl, placeholder: nil, options: [.requestModifier(modifier),.transition(ImageTransition.fade(1))])
+            let headers = [
+                "Authorization": "Bearer \(Constant.Userinfo.currentUser.iGrantToken)"
+            ]
+            
+            let request = NSMutableURLRequest(url: imageUrl,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "GET"
+            request.allHTTPHeaderFields = headers
+            
+            let session = URLSession.shared
+            let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
+                if (error != nil) {
+                    print(error!)
+                } else {
+                    if data != nil {
+                        if let image = UIImage.init(data: data!) {
+                            DispatchQueue.main.async {
+                                 self.logoImageView.image = image
+                            }
+                        }
+                    }
+                }
+            })
+            
+            dataTask.resume()
         }
         
     }

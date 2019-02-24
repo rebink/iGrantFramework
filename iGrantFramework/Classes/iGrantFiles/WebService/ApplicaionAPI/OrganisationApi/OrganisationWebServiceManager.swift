@@ -269,7 +269,7 @@ extension OrganisationWebServiceManager {
     }
     
     func handleUpdatePuposeResponse(response:RestResponse?){
-        //let responseData = response!.response!
+       // let responseData = response!.response!
         DispatchQueue.global().async {
             DispatchQueue.main.async {
                 self.managerDelegate?.didFinishTask(from: self, response: (data: response, error: nil))

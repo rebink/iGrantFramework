@@ -30,13 +30,13 @@ class ConsentTableViewCell: UITableViewCell {
         self.titleLbl.text = self.consentInfo?.descriptionField
         self.dataLbl.text = self.consentInfo?.value
         if self.consentInfo?.status.consented == .Allow{
-            self.consentTypeLbl.text = "Allow".localized()
+            self.consentTypeLbl.text = NSLocalizedString("Allow", comment: "")
         }
         else if self.consentInfo?.status.consented == .AskMe{
-            self.consentTypeLbl.text = "AskMe".localized()
+            self.consentTypeLbl.text = NSLocalizedString("AskMe", comment: "")
         }
         else{
-            self.consentTypeLbl.text = "Disallow".localized()
+            self.consentTypeLbl.text = NSLocalizedString("Disallow", comment: "")
         }
     }
 }

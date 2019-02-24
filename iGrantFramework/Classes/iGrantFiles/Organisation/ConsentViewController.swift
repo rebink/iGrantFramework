@@ -102,7 +102,7 @@ extension  ConsentViewController : UITableViewDelegate,UITableViewDataSource{
 //                }
 //            }
             if indexPath.row == 0{
-                allowCell.textLabel?.text = "Allow".localized()
+                allowCell.textLabel?.text = NSLocalizedString("Allow", comment: "")
                 if consent?.status?.consented == .Allow{
                     allowCell.accessoryType = .checkmark
                     preIndexPath = indexPath
@@ -110,7 +110,7 @@ extension  ConsentViewController : UITableViewDelegate,UITableViewDataSource{
                     allowCell.accessoryType = .none
                 }
             }else{
-                allowCell.textLabel?.text = "Disallow".localized()
+                allowCell.textLabel?.text = NSLocalizedString("Disallow", comment: "")
                 if consent?.status?.consented == .Disallow{
                     preIndexPath = indexPath
                     allowCell.accessoryType = .checkmark
@@ -129,13 +129,13 @@ extension  ConsentViewController : UITableViewDelegate,UITableViewDataSource{
                 askMeCell.tickImage.isHidden = false
 //                askMeCell.selectedDaysLbl.text = "30 Days"
                 let days : Int = (consent?.status?.days)!
-                askMeCell.selectedDaysLbl.text = "\(days) " + "Days".localized()
+                askMeCell.selectedDaysLbl.text = "\(days) " + NSLocalizedString("Days", comment: "")
                 askMeCell.askMeSlider.setValue(Float(days), animated: false)
                 preIndexPath = indexPath
 
             }else{
                 askMeCell.tickImage.isHidden = true
-                askMeCell.selectedDaysLbl.text = "30 Days".localized()
+                askMeCell.selectedDaysLbl.text = NSLocalizedString("30 Days", comment: "")
                 askMeCell.askMeSlider.setValue(30, animated: false)
             }
             return askMeCell
@@ -144,7 +144,7 @@ extension  ConsentViewController : UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "CONSENT".localized()
+        return NSLocalizedString("CONSENT", comment: "")
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
@@ -154,15 +154,14 @@ extension  ConsentViewController : UITableViewDelegate,UITableViewDataSource{
         }
         
         if consent?.status?.consented == .Allow{
-            return "If you choose “Allow”, you are consenting to the use of your personal data ".localized() + (consentTitle) + " permanently for any analytics or third party usage beyond the purposes you have signed up with.".localized()
+            return NSLocalizedString("If you choose “Allow”, you are consenting to the use of your personal data ", comment: "") + (consentTitle) + NSLocalizedString(" permanently for any analytics or third party usage beyond the purposes you have signed up with.", comment: "")
         }
         else if consent?.status?.consented == .Disallow{
-            return "If you choose “Disallow”, you are disabling the use of your personal data for any analytics or third party usage beyond the purposes you have signed up with.".localized()
+            return NSLocalizedString("If you choose “Disallow”, you are disabling the use of your personal data for any analytics or third party usage beyond the purposes you have signed up with.", comment: "")
             
         }
         else{
-            return "If you choose “Ask me”, you consent to use your data for the selected period. When the  time period expires, you get notified in real time requesting for consent when the data provider is using your data.".localized()
-            
+            return NSLocalizedString("If you choose “Ask me”, you consent to use your data for the selected period. When the  time period expires, you get notified in real time requesting for consent when the data provider is using your data.", comment: "")
         }
     }
     

@@ -10,7 +10,6 @@
 import UIKit
 import ExpandableLabel
 import Popover
-import Closures
 import SafariServices
 
 class OrganisationViewController: BaseViewController {
@@ -25,6 +24,7 @@ class OrganisationViewController: BaseViewController {
     var organisationId = ""
     var isNeedToRefresh = false
     var overViewCollpased = true
+    let popover = Popover()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,7 +88,8 @@ class OrganisationViewController: BaseViewController {
     }
     
     @IBAction func backButtonClicked(){
-        self.popVC()
+        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func moreButtonClicked() {
@@ -107,51 +108,57 @@ class OrganisationViewController: BaseViewController {
     }
     
     func showPopOver(){
-        let popOverview = OrgPopOver.instanceFromNib()
+        let popOverview = OrgPopOver.instanceFromNib(vc: self.classForCoder)
+
         let startPoint = CGPoint(x: self.view.frame.width - 30, y: 60)
-        let popover = Popover()
         
-        popOverview.privacyPolicyButton.onTap {
-             popover.dismiss()
-            if let privacyPolicy = self.organisaionDeatils?.organization.privacyPolicy {
-                if self.verifyUrl(urlString: privacyPolicy) {
-                    let safariVC = SFSafariViewController(url: NSURL(string: privacyPolicy)! as URL)
-                    self.present(safariVC, animated: true, completion: nil)
-                    safariVC.delegate = self
-                } else {
-                    self.showWarningAlert(message: Constant.Alert.KPromptMsgNotConfigured)
-                }
-            }
-        }
+        popOverview.privacyPolicyButton.addTarget(self, action: #selector(showPrivacyPolicy), for: .touchUpInside)
         
-        popOverview.downloadDataButton.onTap {
-            // create the alert
-            popover.dismiss()
-            let alert = UIAlertController(title: "Download Data".localized(), message: "A request to download data has been submitted. We will respond to you shortly.".localized(), preferredStyle: UIAlertController.Style.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK".localized(), style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
+        popOverview.downloadDataButton.addTarget(self, action: #selector(tappedOnDownloadData), for: .touchUpInside)
         
-        popOverview.forgetMeButton.onTap {
-            popover.dismiss()
-            // create the alert
-            let alert = UIAlertController(title: "Forget Me".localized(), message: "A request for deleting your data has been submitted. We will process your request shortly.".localized(), preferredStyle: UIAlertController.Style.alert)
-            
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "OK".localized(), style: UIAlertAction.Style.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
+        popOverview.forgetMeButton.addTarget(self, action: #selector(tappedOnForgetMeButton), for: .touchUpInside)
         
 //        popover.arrowSize = CGSize.init(width: 15, height: 20)
         popover.show(popOverview, point: startPoint)
     }
 
+    @objc func showPrivacyPolicy() {
+        popover.dismiss()
+        if let privacyPolicy = self.organisaionDeatils?.organization.privacyPolicy {
+            if self.verifyUrl(urlString: privacyPolicy) {
+                let safariVC = SFSafariViewController(url: NSURL(string: privacyPolicy)! as URL)
+                self.present(safariVC, animated: true, completion: nil)
+                safariVC.delegate = self
+            } else {
+                self.showWarningAlert(message: Constant.Alert.KPromptMsgNotConfigured)
+            }
+        }
+    }
+    
+    @objc func tappedOnDownloadData() {
+        // create the alert
+        popover.dismiss()
+        let alert = UIAlertController(title: NSLocalizedString("Download Data", comment: ""), message: NSLocalizedString("A request to download data has been submitted. We will respond to you shortly.", comment: ""), preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func tappedOnForgetMeButton() {
+        popover.dismiss()
+        // create the alert
+        let alert = UIAlertController(title: NSLocalizedString("Forget Me", comment: ""), message: NSLocalizedString("A request for deleting your data has been submitted. We will process your request shortly.", comment: ""), preferredStyle: UIAlertController.Style.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: UIAlertAction.Style.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     func verifyUrl(urlString: String?) -> Bool {
         guard let urlString = urlString,
             let url = URL(string: urlString) else {
@@ -327,12 +334,12 @@ extension OrganisationViewController: ExpandableLabelDelegate ,OrganisationPurpo
                 self.addLoadingIndicator()
                 serviceManager.updatePurpose(orgId: (self.organisaionDeatils?.organization.iD)!, consentID:  (self.organisaionDeatils?.consentID)!, attributeId: "", purposeId: (purposeInfo?.purpose.iD)!, status: value)
             }));
-            alerController.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: {(action:UIAlertAction) in
+            alerController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: {(action:UIAlertAction) in
                 cell.statusSwitch.isOn = !cell.statusSwitch.isOn
             }));
 
         }else{
-            alerController.addAction(UIAlertAction(title: "Cancel".localized(), style: .destructive, handler: {(action:UIAlertAction) in
+            alerController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .destructive, handler: {(action:UIAlertAction) in
                 cell.statusSwitch.isOn = !cell.statusSwitch.isOn
             }));
 

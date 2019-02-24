@@ -14,8 +14,8 @@ class OrgPopOver: UIView {
     @IBOutlet weak var downloadDataButton: UIButton!
     @IBOutlet weak var privacyPolicyButton: UIButton!
     
-    class func instanceFromNib() -> OrgPopOver {
-        return UINib(nibName: "PopOverView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! OrgPopOver
+    class func instanceFromNib(vc: AnyClass) -> OrgPopOver {
+        return UINib(nibName: "PopOverView", bundle: Bundle.init(for: vc)).instantiate(withOwner: nil, options: nil)[0] as! OrgPopOver
     }
     /*
     // Only override draw() if you perform custom drawing.

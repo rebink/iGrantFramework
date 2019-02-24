@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
     s.source_files = 'iGrantFramework/Classes/**/*'
     s.swift_version = '4.2'
     s.resource_bundles = {
-    'iGrantFramework' => ['iGrantFramework/Assets/**/*.png'],
+        #'iGrantFramework' => ['iGrantFramework/Assets/**/*.png'],
     'PopView' => ['iGrantFramework/Classes/iGrantFiles/Organisation/PopOverView.xib'],
     'iGrant' => ['iGrantFramework/Classes/iGrantFiles/iGrant.storyboard']
     }
@@ -39,8 +39,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
 s.frameworks = 'UIKit' , 'SafariServices'
-s.dependency 'Alamofire', '~> 4.6'
-s.dependency 'Kingfisher'
 s.dependency 'Alamofire'
 s.dependency 'SwiftyJSON'
 s.dependency 'MBProgressHUD'
@@ -48,11 +46,6 @@ s.dependency 'SkyFloatingLabelTextField', '~> 3.0'
 s.dependency 'IQKeyboardManagerSwift'
 s.dependency "ExpandableLabel"
 s.dependency "Popover"
-s.dependency 'Closures'
-s.dependency 'Localize-Swift', '~> 2.0'
 s.dependency 'Toast-Swift'
-s.dependency 'CountryPickerSwift'
-
-
 
 end

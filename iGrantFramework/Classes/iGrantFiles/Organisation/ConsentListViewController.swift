@@ -130,11 +130,11 @@ class ConsentListViewController: BaseViewController {
     }
     
     func showConfirmationAlert(){
-        let alerController = UIAlertController(title: Constant.AppSetupConstant.KAppName, message: "Are you sure you want to disallow all ?".localized(), preferredStyle: .alert)
-        alerController.addAction(UIAlertAction(title: "Disallow All".localized(), style: .destructive, handler: {(action:UIAlertAction) in
+        let alerController = UIAlertController(title: Constant.AppSetupConstant.KAppName, message: NSLocalizedString("Are you sure you want to disallow all ?", comment: ""), preferredStyle: .alert)
+        alerController.addAction(UIAlertAction(title: NSLocalizedString("Disallow All", comment: ""), style: .destructive, handler: {(action:UIAlertAction) in
             self.calldisallowAllApi()
         }));
-        alerController.addAction(UIAlertAction(title: "Cancel".localized(), style: .cancel, handler: {(action:UIAlertAction) in
+        alerController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: {(action:UIAlertAction) in
         }));
         present(alerController, animated: true, completion: nil)
 

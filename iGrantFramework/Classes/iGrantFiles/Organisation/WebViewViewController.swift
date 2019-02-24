@@ -15,10 +15,10 @@ class WebViewViewController: BaseViewController, UIWebViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         webview.delegate = self
-//        let backButton = UIButton(type: UIButton.ButtonType.custom)
-//        backButton.frame =  CGRect.init(x: 0, y: 0, width: 10, height: 40)
-//        backButton.setTitle(" ", for: .normal)
-//        let backButtonBar = UIBarButtonItem(customView:backButton)
+        let backButton = UIButton(type: UIButton.ButtonType.custom)
+        backButton.frame =  CGRect.init(x: 0, y: 0, width: 10, height: 40)
+        backButton.setTitle(" ", for: .normal)
+        //let backButtonBar = UIBarButtonItem(customView:backButton)
 //        self.navigationItem.rightBarButtonItem = backButtonBar
         self.navigationController?.navigationBar.isHidden = false
         self.title = "Policy"

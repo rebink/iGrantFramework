@@ -1,24 +1,16 @@
 PODS:
   - Alamofire (4.8.1)
-  - Closures (0.5)
-  - CountryPickerSwift (1.8.0)
   - ExpandableLabel (0.5.2)
   - iGrantFramework (0.2.0):
     - Alamofire
-    - Closures
-    - CountryPickerSwift
     - ExpandableLabel
     - IQKeyboardManagerSwift
-    - Kingfisher
-    - Localize-Swift (~> 2.0)
     - MBProgressHUD
     - Popover
     - SkyFloatingLabelTextField (~> 3.0)
     - SwiftyJSON
     - Toast-Swift
   - IQKeyboardManagerSwift (6.2.0)
-  - Kingfisher (5.1.1)
-  - Localize-Swift (2.0.0)
   - MBProgressHUD (1.1.0)
   - Popover (1.2.2)
   - SkyFloatingLabelTextField (3.6.0)
@@ -31,12 +23,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
-    - Closures
-    - CountryPickerSwift
     - ExpandableLabel
     - IQKeyboardManagerSwift
-    - Kingfisher
-    - Localize-Swift
     - MBProgressHUD
     - Popover
     - SkyFloatingLabelTextField
@@ -49,13 +37,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  Closures: ad5ebce1242de44d64505bfd3b7c25b12cad3d2e
-  CountryPickerSwift: 4c328ae9687322cacf541120f5c43f0e2c1ba194
   ExpandableLabel: c2fab6d27860c572d67134b30522a5917746171d
-  iGrantFramework: 7f1e9b29c97e5a9adabed11773f0aa38af66e9ce
+  iGrantFramework: 987154b95c35e732ff2f1a18540062ea940be757
   IQKeyboardManagerSwift: b07ccf9d8cafe993dcd6cb794eb4ba34611a0c4e
-  Kingfisher: 2558186963e5be42d98c5b110ccb3130148b77e4
-  Localize-Swift: c798ec9286494866f7068f85f7c71283ac5bdab4
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   Popover: 21e357f86d45c8d9e29a41a4adbca3664d6e511f
   SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3

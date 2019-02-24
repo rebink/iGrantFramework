@@ -14,8 +14,8 @@ import MBProgressHUD
 
 //import Toaster
 
-let internetAalertMsg = "The Internet connection appears to be offline.".localized()
-let serviceError = "Failed Operation!!!".localized()
+let internetAalertMsg = NSLocalizedString("The Internet connection appears to be offline.", comment: "")
+let serviceError = NSLocalizedString("Failed Operation!!!", comment: "")
 
 
 extension UIApplication {
@@ -58,14 +58,14 @@ extension UIViewController {
 //
     func showAlert(title: String?, message: String?) {
         let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok".localized(), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .cancel, handler: nil)
         alerController.addAction(cancelAction)
         present(alerController, animated: true, completion: nil)
     }
     
     func showAlertwithTitle(title: String, message: String) {
         let alerController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Ok".localized(), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Ok", comment: ""), style: .cancel, handler: nil)
         alerController.addAction(cancelAction)
         present(alerController, animated: true, completion: nil)
     }
@@ -117,7 +117,7 @@ extension UIViewController {
     }
     
     func showNoPermissionAlert(){
-        self.showAlertwithTitle(title: Constant.AppSetupConstant.KAppName, message: "You dont have permission")
+        self.showAlertwithTitle(title: Constant.AppSetupConstant.KAppName, message: NSLocalizedString("You dont have permission", comment: ""))
     }
 
     
