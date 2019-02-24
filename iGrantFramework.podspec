@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iGrantFramework'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Framework to integrate iGrant.io Services to your app.'
 
 # This description is used to generate tags and improve search results.
